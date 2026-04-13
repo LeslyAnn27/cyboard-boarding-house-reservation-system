@@ -1,0 +1,664 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .available-badge, .unavailable-badge, .gender-badge {
+            position: absolute;
+            padding: 6px 12px;
+            color: white;
+            font-size: 12px;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+        
+        .available-badge {
+            top: 10px;
+            left: 10px;
+            background: #28a745;
+        }
+        
+        .unavailable-badge {
+            top: 10px;
+            left: 10px;
+            background: #dc3545;
+        }
+        
+        .gender-badge {
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+        }
+        
+        .gender-badge.male {
+            background: #17a2b8;
+        }
+        
+        .gender-badge.female {
+            background: #e83e8c;
+        }
+        
+        .gender-badge.mixed {
+            background: #6f42c1;
+        }
+        
+        .room-info {
+            padding: 20px;
+        }
+        
+        .room-type {
+            margin: 0 0 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .price-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .room-rate {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 8px;
+        }
+        
+        .payment-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .payment-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .payment-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 2px;
+        }
+        
+        .payment-value {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .payment-status {
+            background: #3c6e71;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .amenities-section, .utilities-section {
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 8px;
+            color: #3c6e71;
+        }
+        
+        .amenity-tag, .utility-tag {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 6px 12px;
+            margin: 3px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            color: #495057;
+        }
+        
+        .utility-tag.included {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .utility-tag.not-included {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .utilities-note {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+        
+        .utilities-note.included {
+            color: #155724;
+        }
+        
+        .utilities-note.not-included {
+            color: #721c24;
+        }
+        
+        .room-actions {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #3c6e71;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2c5052;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+        
+        .btn-info:hover {
+            background: #138496;
+        }
+        
+        @media (max-width: 768px) {
+            .payment-details {
+                flex-direction: column;
+            }
+            
+            .room-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    
+
+        header {
+            background-color: #3c6e71;
+            padding: 1rem;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #d9d9d9;
+        }
+        nav ul li a i {
+            margin-right: 0.5rem;
+        }
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .user-profile img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 0.5rem;
+        }
+        .user-profile span {
+            color: white;
+            font-size: 0.9rem;
+        }
+        .dropdown-menu {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 0.5rem 0;
+            width: 200px;
+            z-index: 10;
+        }
+        .dropdown-menu .dropdown-item {
+            color: #333;
+            padding: 0.75rem 1rem;
+            transition: background-color 0.3s;
+        }
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+        .dropdown-menu .dropdown-item i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+            color: #3c6e71;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 200px);
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .map {
+            flex: 1;
+            background: #f0f0f0;
+            margin-bottom: 3vh;
+        }
+        .boarding-house-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #fff;
+        }
+        .boarding-house-count {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .boarding-house-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+.boarding-house-card .favorite-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    background: #dc3545;
+    color: white;
+}
+.boarding-house-card .favorite-button:hover {
+    background: #b02a2a;
+}
+        .boarding-house-image {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+        .boarding-house-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .available-badge, .noavailable-badge, .gender-badge {
+            position: absolute;
+            padding: 5px 10px;
+            color: white;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .available-badge {
+            top: 10px;
+            left: 10px;
+            background: #28a745;
+        }
+        .noavailable-badge{
+            top: 10px;
+            left: 10px;
+            background: #FF2C2C;
+        }
+        .gender-badge {
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+        }
+        .boarding-house-info {
+            padding: 15px;
+        }
+        .boarding-house-name {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+        }
+        .boarding-house-location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .boarding-house-location i {
+            margin-right: 5px;
+        }
+        .price-range {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .facilities {
+            margin-bottom: 10px;
+        }
+        .facility-tag {
+            display: inline-block;
+            background: #f1f1f1;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .room-info, .downpayment-info, .utilities-included {
+            margin-bottom: 10px;
+        }
+        .review-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .review-stars i {
+            color: #f5c518;
+        }
+        .review-count {
+            margin-left: 10px;
+            font-size: 0.9em;
+        }
+        .view-button, .review-button, .map-marker-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .view-button {
+            background: #28a745;
+            color: white;
+        }
+        .review-button {
+            background: #007bff;
+            color: white;
+        }
+        
+        .map-marker-button {
+            background: #ff6f61;
+            color: white;
+        }
+        .show-all-button {
+            background-color: #f1f1f1;
+            border: 1px solid #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .show-all-button i {
+            margin-right: 0.5rem;
+        }
+        .show-all-button:hover {
+            background-color: #e9e9e9;
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                position: relative;
+            }
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+            nav {
+                width: 100%;
+                margin: 1rem 0;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            .user-actions {
+                width: 100%;
+                justify-content: left;
+            }
+            .filter-sort {
+                gap: 0px;
+                flex-direction: column;
+            }
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            .map, .boarding-house-list {
+                flex: none;
+                width: 100%;
+                height: 50vh;
+                z-index:1;
+            }
+        }
+        /* Search section styles */
+        .search-section {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .search-bar {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        .search-bar button {
+            background-color: #3c6e71;
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #2c5052;
+        }
+        .filter-sort {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .filter-button, .sort-button {
+            background-color: #f1f1f1;
+            border: 1px solid #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .filter-button i, .sort-button i {
+            margin-right: 0.5rem;
+        }
+        .filter-button:hover, .sort-button:hover {
+            background-color: #e9e9e9;
+        }
+        /* Modal styles */
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .star-rating i {
+            font-size: 1.5rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s;
+            margin: 0 5px;
+        }
+        .star-rating i.selected {
+            color: #f5c518;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .modal-title {
+            font-weight: 600;
+            color: #3c6e71;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+        .form-control,
+        .form-select {
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.75rem;
+        }
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #3c6e71;
+            box-shadow: 0 0 6px rgba(60, 110, 113, 0.5);
+        }
+        .form-check-input:checked {
+            background-color: #3c6e71;
+            border-color: #3c6e71;
+        }
+        .form-check-label {
+            color: #333;
+            font-size: 0.9rem;
+        }
+        .modal-footer {
+            background-color: #f5f7fa;
+            border-radius: 0 0 10px 10px;
+        }
+        .btn-primary {
+            background-color: #3c6e71;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #2c5052;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+        }
+        .btn-secondary:hover {
+            background-color: #5c636a;
+        }
+        .list-group-item {
+            background-color: white;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem;
+        }
+        .list-group-item:hover {
+            background-color: #f1f3f5;
+        }
+        
