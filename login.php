@@ -175,13 +175,13 @@ const traditionalFields = document.getElementById('traditionalFields');
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AIzaSyAr1MJ6WQYTdgOhNII21tDab4YUNf01Dis",
-    authDomain: "cyboard-aa598.firebaseapp.com",
-    projectId: "cyboard-aa598",
-    storageBucket: "cyboard-aa598.firebasestorage.app",
-    messagingSenderId: "871433916041",
-    appId: "1:871433916041:web:5bc2033e6ea0f9c5590058",
-    measurementId: "G-6ZYLGVZ3P4"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
 };
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();

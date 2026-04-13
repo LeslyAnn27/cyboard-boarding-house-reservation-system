@@ -296,14 +296,14 @@
             $mail = new PHPMailer(true);
             try {
                 $mail->isSMTP();
-                $mail->Host = 'smtp-relay.brevo.com';
+                $mail->Host = 'YOUR_SMTP_HOST'; // e.g., smtp.gmail.com or your email provider's SMTP server
                 $mail->SMTPAuth = true;
-                $mail->Username = '99079e001@smtp-brevo.com';
-                $mail->Password = 'nrZRC0vGzfSJD8KX';
+                $mail->Username = 'YOUR_EMAIL@DOMAIN.com';
+                $mail->Password = 'YOUR_PASSWORD';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
-                $mail->setFrom('cyboard.reservations@gmail.com', 'CyBoard Reservations');
+                $mail->setFrom('YOUR_EMAIL@DOMAIN.com', 'YOUR_NAME_OR_COMPANY');
                 $mail->addAddress($tenantEmail);
 
                 $mail->isHTML(true);

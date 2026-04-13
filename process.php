@@ -128,8 +128,8 @@ if(isset($_POST['reserve'])){
 
         if($email_data){
             // TextBee SMS notification
-            $device_id = '68ee5d5ebf50e7762da52a98'; 
-            $api_key = '1859fd21-00b6-48c1-8b1e-173ba39602f9';    
+            $device_id = 'YOUR_DEVICE_ID'; // Replace with your actual TextBee device ID
+            $api_key = 'YOUR_API_KEY';    
             $tenant_name = $email_data['tenant_fname'];
             // Format phone number to international format
             $phone_number = $email_data['landlord_phone'];
@@ -183,15 +183,15 @@ if(isset($_POST['reserve'])){
                 try {
                     // SMTP Configuration
                     $mail->isSMTP();
-                    $mail->Host = 'smtp-relay.brevo.com';
+                    $mail->Host = 'YOUR_SMTP_HOST'; // e.g., smtp.gmail.com or your email provider's SMTP server
                     $mail->SMTPAuth = true;
-                    $mail->Username = '99079e001@smtp-brevo.com';
-                    $mail->Password = 'nrZRC0vGzfSJD8KX';
+                    $mail->Username = 'YOUR_EMAIL@DOMAIN.com';
+                    $mail->Password = 'YOUR_PASSWORD';
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $mail->Port = 587;
 
                     // Email settings
-                    $mail->setFrom('cyboard.reservations@gmail.com', 'CyBoard');
+                    $mail->setFrom('YOUR_EMAIL@DOMAIN.com', 'YOUR_NAME_OR_COMPANY');
                     $mail->addAddress($email_data['landlord_email'], $email_data['landlord_fname']);
 
                     $mail->isHTML(true);

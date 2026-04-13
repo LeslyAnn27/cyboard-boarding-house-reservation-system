@@ -88,8 +88,8 @@ $stmt->bind_param("si", $otp, $landlord_id);
 
 if ($stmt->execute()) {
     // TextBee API integration
-    $device_id = '68ee5d5ebf50e7762da52a98'; 
-    $api_key = '1859fd21-00b6-48c1-8b1e-173ba39602f9';    
+    $device_id = 'YOUR_DEVICE_ID'; // Replace with your actual TextBee device ID
+    $api_key = 'YOUR_API_KEY';    
     $message = "Your OTP is $otp. It expires in 5 minutes.";
 
     $data = [
